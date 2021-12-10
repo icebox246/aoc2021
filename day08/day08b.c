@@ -1,7 +1,7 @@
 // I caved this problem was perfectly suited for imperative languages.
 // Even if I were to use Haskell for this part it would have been very mych
-// imperative, which in my eyes defeats the purpose of using it so I
-// wrote this one in C. :)
+// imperative, which in my eyes defeats the purpose of using a functional
+// language so I wrote this one in C. :)
 
 #include <stdio.h>
 #include <stdlib.h>
