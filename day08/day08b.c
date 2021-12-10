@@ -1,8 +1,11 @@
+// I caved this problem was perfectly suited for imperative languages.
+// Even if I were to use Haskell for this part it would have been very mych
+// imperative, which in my eyes defeats the purpose of using it so I
+// wrote this one in C. :)
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-// FIXME: badly recognizes 6,9,0
 
 char *entries[10 + 4];
 
@@ -20,6 +23,7 @@ void swapc(char *a, char *b) {
 
 int main() {
     int entryCount = 0;
+    int total = 0;
     while (!feof(stdin)) {
         for (int i = 0; i < 10; i++) {
             entries[i] = malloc(10);
@@ -28,9 +32,10 @@ int main() {
             /* printf("%s ", entries[i]); */
         }
 
-        char tmp[10];
+        char *tmp = malloc(10);
         scanf("%s", tmp);
-        /* printf("%s ", tmp); */
+        if (tmp[0] != '|') break;
+        free(tmp);
 
         for (int i = 10; i < 14; i++) {
             entries[i] = malloc(10);
@@ -58,6 +63,8 @@ int main() {
             if (en[1][i] != c && en[1][i] != f) a = en[1][i];
         }
 
+        int cn_t = 0;
+
         // find 6, make sure of c and f
         for (int i = 6; i <= 8; i++) {
             int cn = 0;
@@ -68,6 +75,8 @@ int main() {
                     lst = en[i][j];
                 }
             }
+            cn_t *= 10;
+            cn_t += cn;
             if (cn == 1) {
                 num[i] = 6;
                 if (lst == c) {
@@ -107,36 +116,19 @@ int main() {
         e = missing;
 
         // find 0 and 9
-        for (int i = 0; i < 7; i++) {
-            if (en[6][i] == e) {
-                num[6] = 0;
-                num[8] = 9;
+        for (int i = 6; i <= 8; i++) {
+            int ee = 0;
+            for (int j = 0; j < 6; j++) {
+                if (en[i][j] == e) {
+                    ee = 1;
+                    break;
+                }
+            }
+            if (!ee) {
+                num[i] = 9;
                 break;
-            } else if (i == 6) {
-                num[6] = 9;
-                num[8] = 0;
             }
         }
-
-        /* if (entryCount == 3) { */
-        /*     for (int i = 0; i < 14; i++) { */
-        /*         printf("%7s ", entries[i]); */
-        /*     } */
-        /*     printf("\n"); */
-        /*     printf( */
-        /*         "a: %c\n" */
-        /*         "b: %c\n" */
-        /*         "c: %c\n" */
-        /*         "d: %c\n" */
-        /*         "e: %c\n" */
-        /*         "f: %c\n" */
-        /*         "g: %c\n", */
-        /*         a, b, c, d, e, f, g); */
-
-        /*     for (int i = 0; i < 10; i++) { */
-        /*         printf("%d: %d\n", i, num[i]); */
-        /*     } */
-        /* } */
 
         int n = 0;
 
@@ -151,12 +143,14 @@ int main() {
             }
         }
 
-        printf("decoded: %d\n", n);
-
         for (int i = 0; i < 14; i++) {
             free(en[i]);
         }
 
+        total += n;
+
         entryCount++;
     }
+
+    printf("Part II:\n%d\n", total);
 }
