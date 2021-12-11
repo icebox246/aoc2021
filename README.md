@@ -15,4 +15,5 @@ Languages:
 - Day 08: Haskell, C
 - Day 09: Haskell
 - Day 10: Haskell
+- Day 11: Haskell
 
