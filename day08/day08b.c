@@ -1,5 +1,5 @@
-// I caved this problem was perfectly suited for imperative languages.
-// Even if I were to use Haskell for this part it would have been very mych
+// I caved, this problem was perfectly suited for imperative languages.
+// Even if I were to use Haskell for this part it would have been very much
 // imperative, which in my eyes defeats the purpose of using a functional
 // language so I wrote this one in C. :)
 
