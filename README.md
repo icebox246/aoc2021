@@ -16,4 +16,5 @@ Languages:
 - Day 09: Haskell
 - Day 10: Haskell
 - Day 11: Haskell
+- Day 12: Haskell
 
