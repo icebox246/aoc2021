@@ -3,18 +3,7 @@ import qualified Data.Map  as M
 type Poly = (String, Char)
 
 parsePoly :: String -> Poly
-parsePoly s = let ws = words s in (head ws, head (ws !! 2))
-
--- applyPolys :: String -> M.Map String Char -> String
--- applyPolys [] _ = []
--- applyPolys s mp = apply' [] s
---     where
---         apply' :: String -> String -> String
---         apply' buf [] = reverse buf
---         apply' buf [s0] = apply' (s0:buf) []
---         apply' buf (s0:s1:ss) = case M.lookup [s0,s1] mp of
---                                   Nothing -> apply' (s0:buf) (s1:ss)
---                                   Just c  -> apply' (c:s0:buf) (s1:ss)
+parsePoly s = let ws = words s in (head ws, head (ws !! 2))                                   Just c  -> apply' (c:s0:buf) (s1:ss)
 
 countOcs :: Ord a => [a] -> M.Map a Int
 countOcs [] = error "No elements to count!"
@@ -56,6 +45,6 @@ main = do
     let finalMap' = foldl (\ (pairMap,charMap) _ -> applyPoly pairMap charMap polyMap) (startMap,countOcs startingState) [1..40]
     let finalLetters' = snd finalMap'
     let occsInFinal' =  sortBy (\(_,a) (_,b) -> compare a b) $ M.toList finalLetters'
-    putStrLn "Part I:"
+    putStrLn "Part II:"
     print $ snd (last occsInFinal') - snd (head occsInFinal')
 
