@@ -20,4 +20,5 @@ Languages:
 - Day 13: Haskell
 - Day 14: Haskell
 - Day 15: C
+- Day 16: Haskell
 
