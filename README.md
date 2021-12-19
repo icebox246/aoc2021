@@ -23,4 +23,5 @@ Languages:
 - Day 16: Haskell
 - Day 17: Haskell
 - Day 18: Haskell
+- Day 19: Haskell
 
