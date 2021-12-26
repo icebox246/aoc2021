@@ -28,4 +28,6 @@ Languages:
 - Day 21: Haskell
 - Day 22: Haskell
 - Day 23: Haskell
+- Day 24: C++
+- Day 25: Haskell
 
