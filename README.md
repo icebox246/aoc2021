@@ -31,3 +31,4 @@ Languages:
 - Day 24: C++
 - Day 25: Haskell
 
+# Merry Christmas, and Happy New Year!
